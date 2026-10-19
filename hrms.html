@@ -8,50 +8,68 @@
 </head>
 <body>
 
+<div id="cursor"></div>
+<div id="cursor-blur"></div>
+
 <nav>
   <a href="index.html" class="logo">Sme<span>bloc</span></a>
   <div class="nav-links">
-    <a href="index.html">← Back to Industries</a>
-    <a href="https://wa.me/91XXXXXXXXXX" class="btn-nav">Get a Demo</a>
+    <a href="index.html">← Back</a>
+    <a href="https://wa.me/91XXXXXXXXXX" class="btn-nav" target="_blank">Get in Touch</a>
   </div>
 </nav>
 
-<section class="hero">
-  <div class="tag">Human Resources & Payroll</div>
-  <h1>Automate your HR.</h1>
-  <p>Say goodbye to manual attendance registers and messy payroll calculations.</p>
+<section>
+  <div class="detail-hero">
+    <a href="index.html" class="back-btn">← Back to Industries</a>
+    <h1>HRMS & Payroll</h1>
+    <p>Automate your HR operations. Say goodbye to manual attendance registers and messy payroll calculations.</p>
+  </div>
+
+  <div class="split-layout">
+    <div class="detail-block">
+      <h3>1. Biometric Attendance & Payroll</h3>
+      <p>Track employee time and generate salaries without any manual data entry.</p>
+      <ul class="feature-list">
+        <li><strong>Biometric Integration:</strong> Connect physical fingerprint machines directly to our software.</li>
+        <li><strong>Salary Calculation:</strong> Automatically calculates salary based on days worked, overtime, and leaves.</li>
+        <li><strong>Payslip Generation:</strong> Generates PDF payslips and emails them to employees automatically.</li>
+      </ul>
+      <div class="impact-box">💡 <strong>Business Impact:</strong> Saves 10-15 hours of admin work every month and prevents payroll errors.</div>
+    </div>
+    
+    <div class="ui-mockup">
+      <div class="ui-header"><div class="ui-dot r"></div><div class="ui-dot y"></div><div class="ui-dot g"></div></div>
+      <div class="ui-body">
+        <h4 style="color:#fff; margin-bottom: 15px; font-family: 'Inter'; font-size: 14px;">Payroll Summary - Oct</h4>
+        <div style="display:flex; justify-content:space-between; font-size:12px; color:#94a3b8; margin-bottom:5px;"><span>Total Employees</span><span style="color:#fff;">45</span></div>
+        <div style="display:flex; justify-content:space-between; font-size:12px; color:#94a3b8; margin-bottom:5px;"><span>Present Today</span><span style="color:#10b981;">42</span></div>
+        <div style="display:flex; justify-content:space-between; font-size:12px; color:#94a3b8; margin-bottom:15px;"><span>On Leave</span><span style="color:#f59e0b;">3</span></div>
+        <div style="background:var(--brand); color:#fff; text-align:center; padding:10px; border-radius:6px; font-size:13px; font-weight:600;">Generate Payslips</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 40px;">
+    <a href="https://wa.me/918329550979" class="btn" target="_blank">Discuss Your HR Requirements</a>
+  </div>
 </section>
 
-<section style="padding-top: 0;">
-  <h2>Core Modules We Build</h2>
-  
-  <div class="detail-block">
-    <h3>1. Attendance & Leave Management</h3>
-    <p>Track employee time and leaves accurately.</p>
-    <ul class="feature-list">
-      <li><strong>Biometric Integration:</strong> Connect physical fingerprint machines directly to our software.</li>
-      <li><strong>Mobile Check-in:</strong> Allow field staff to mark attendance via GPS on their phones.</li>
-      <li><strong>Leave Workflow:</strong> Employees apply for leave on the app; managers approve with one click.</li>
-      <li><strong>Business Impact:</strong> Stops time-theft and eliminates manual attendance data entry.</li>
-    </ul>
-  </div>
-
-  <div class="detail-block">
-    <h3>2. Automated Payroll</h3>
-    <p>Generate salaries without spreadsheets.</p>
-    <ul class="feature-list">
-      <li><strong>Salary Calculation:</strong> Automatically calculates salary based on days worked, overtime, and leaves.</li>
-      <li><strong>Payslip Generation:</strong> Generates PDF payslips and emails them to employees automatically.</li>
-      <li><strong>Compliance:</strong> Calculates PF, ESI, and TDS automatically.</li>
-      <li><strong>Business Impact:</strong> Saves 10-15 hours of admin work every month and prevents payroll errors.</li>
-    </ul>
-  </div>
-
-  <div style="text-align: center; margin-top: 60px;">
-    <h2>Simplify your HR operations.</h2>
-    <a href="https://wa.me/91XXXXXXXXXX" class="btn">Discuss Your Requirements</a>
-  </div>
-</section>
-
+<script>
+  const cursor = document.getElementById('cursor');
+  const cursorBlur = document.getElementById('cursor-blur');
+  let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0, blurX = 0, blurY = 0;
+  if (window.matchMedia("(pointer: fine)").matches) {
+    document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
+    function animate() {
+      cursorX += (mouseX - cursorX) * 0.2; cursorY += (mouseY - cursorY) * 0.2;
+      cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
+      blurX += (mouseX - blurX) * 0.05; blurY += (mouseY - blurY) * 0.05;
+      cursorBlur.style.transform = `translate(${blurX}px, ${blurY}px)`;
+      requestAnimationFrame(animate);
+    }
+    animate();
+  }
+</script>
 </body>
 </html>
