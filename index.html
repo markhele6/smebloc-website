@@ -72,7 +72,6 @@
   const cursor = document.getElementById('cursor');
   const cursorBlur = document.getElementById('cursor-blur');
   let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0, blurX = 0, blurY = 0;
-
   if (window.matchMedia("(pointer: fine)").matches) {
     document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
     function animate() {
