@@ -8,62 +8,76 @@
 </head>
 <body>
 
+<div id="cursor"></div>
+<div id="cursor-blur"></div>
+
 <nav>
   <a href="index.html" class="logo">Sme<span>bloc</span></a>
   <div class="nav-links">
-    <a href="index.html">← Back to Industries</a>
-    <a href="https://wa.me/91XXXXXXXXXX" class="btn-nav">Get a Demo</a>
+    <a href="index.html">← Back</a>
+    <a href="https://wa.me/91XXXXXXXXXX" class="btn-nav" target="_blank">Get in Touch</a>
   </div>
 </nav>
 
-<section class="hero">
-  <div class="tag">Manufacturing Solutions</div>
-  <h1>Stop running your factory on Excel.</h1>
-  <p>We build custom ERP and inventory systems that track every raw material, production batch, and dispatch — in real-time.</p>
-</section>
-
-<section style="padding-top: 0;">
-  <h2>Core Modules We Build</h2>
-  
-  <div class="detail-block">
-    <h3>1. Real-Time Inventory & Stock Management</h3>
-    <p>Know exactly what is in your warehouse at any given second. No more manual counting.</p>
-    <ul class="feature-list">
-      <li><strong>Raw Material Tracking:</strong> Track stock inward, outward, and current levels.</li>
-      <li><strong>Low Stock Alerts:</strong> Automated WhatsApp/Email alerts when material is running out.</li>
-      <li><strong>Barcode/QR Integration:</strong> Scan items for instant entry and dispatch.</li>
-      <li><strong>Business Impact:</strong> Prevents production halts due to material shortage and stops over-purchasing.</li>
-    </ul>
+<section>
+  <div class="detail-hero">
+    <a href="index.html" class="back-btn">← Back to Industries</a>
+    <h1>Manufacturing Software</h1>
+    <p>Stop running your factory on Excel. We build custom systems to track production, inventory, and dispatch in real-time.</p>
   </div>
 
-  <div class="detail-block">
-    <h3>2. Production Planning & QC Rejection Tracking</h3>
-    <p>Track your production line efficiency and monitor quality control.</p>
-    <ul class="feature-list">
-      <li><strong>Batch Tracking:</strong> Assign a batch number to every production run.</li>
-      <li><strong>QC Rejection Logs:</strong> When a product fails QC, log the rejection reason (e.g., machine fault, material defect).</li>
-      <li><strong>Wastage Analysis:</strong> Calculate exactly how much material is wasted per batch.</li>
-      <li><strong>Business Impact:</strong> Identifies bottlenecks in the factory and reduces wastage costs by up to 15%.</li>
-    </ul>
+  <!-- Feature 1 -->
+  <div class="split-layout">
+    <div class="detail-block">
+      <h3>1. Real-Time Inventory & Stock</h3>
+      <p>Know exactly what is in your warehouse at any given second. No more manual counting or production halts.</p>
+      <ul class="feature-list">
+        <li><strong>Raw Material Tracking:</strong> Track stock inward, outward, and current levels.</li>
+        <li><strong>Low Stock Alerts:</strong> Automated WhatsApp alerts when material runs out.</li>
+        <li><strong>Barcode Integration:</strong> Scan items for instant entry and error-free dispatch.</li>
+      </ul>
+      <div class="impact-box">💡 <strong>Business Impact:</strong> Prevents production halts and stops over-purchasing, saving 15-20% on capital blocked in inventory.</div>
+    </div>
+    
+    <div class="ui-mockup">
+      <div class="ui-header"><div class="ui-dot r"></div><div class="ui-dot y"></div><div class="ui-dot g"></div></div>
+      <div class="ui-body">
+        <h4 style="color:#fff; margin-bottom: 15px; font-family: 'Inter'; font-size: 14px;">Warehouse Inventory</h4>
+        <div class="ui-row"><span style="font-size:12px; color:#94a3b8;">Steel Rods (Raw)</span><span style="font-size:12px; color:#10b981;">8,400 kg</span></div>
+        <div class="ui-bar"><div class="ui-bar-fill" style="width: 80%;"></div></div>
+        <div class="ui-row" style="margin-top:15px;"><span style="font-size:12px; color:#94a3b8;">Plastic Moulds</span><span style="font-size:12px; color:#ef4444;">Low (400)</span></div>
+        <div class="ui-bar"><div class="ui-bar-fill" style="width: 15%; background:#ef4444;"></div></div>
+        <div class="ui-chart">
+          <div class="ui-chart-bar" style="height: 40%;"></div>
+          <div class="ui-chart-bar" style="height: 70%;"></div>
+          <div class="ui-chart-bar" style="height: 50%;"></div>
+          <div class="ui-chart-bar" style="height: 90%; background: var(--brand);"></div>
+          <div class="ui-chart-bar" style="height: 60%;"></div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="detail-block">
-    <h3>3. Dispatch & Billing System</h3>
-    <p>Manage outbound shipments and generate invoices in one click.</p>
-    <ul class="feature-list">
-      <li><strong>Dispatch Scheduling:</strong> Assign vehicles, generate e-way bills, and print packing lists.</li>
-      <li><strong>Automated Invoicing:</strong> Generate GST-compliant invoices directly from the dispatch data.</li>
-      <li><strong>Ledger Management:</strong> Track pending payments from distributors and clients.</li>
-      <li><strong>Business Impact:</strong> Speeds up dispatch time and eliminates billing errors.</li>
-    </ul>
-  </div>
-
-  <div style="text-align: center; margin-top: 60px;">
-    <h2>Ready to upgrade your factory?</h2>
-    <p style="margin-bottom: 30px;">We build and deploy in weeks, not months.</p>
-    <a href="https://wa.me/91XXXXXXXXXX" class="btn">Discuss Your Requirements</a>
+  <div style="text-align: center; margin-top: 40px;">
+    <a href="https://wa.me/91XXXXXXXXXX" class="btn" target="_blank">Discuss Your Factory Requirements</a>
   </div>
 </section>
 
+<script>
+  const cursor = document.getElementById('cursor');
+  const cursorBlur = document.getElementById('cursor-blur');
+  let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0, blurX = 0, blurY = 0;
+  if (window.matchMedia("(pointer: fine)").matches) {
+    document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
+    function animate() {
+      cursorX += (mouseX - cursorX) * 0.2; cursorY += (mouseY - cursorY) * 0.2;
+      cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
+      blurX += (mouseX - blurX) * 0.05; blurY += (mouseY - blurY) * 0.05;
+      cursorBlur.style.transform = `translate(${blurX}px, ${blurY}px)`;
+      requestAnimationFrame(animate);
+    }
+    animate();
+  }
+</script>
 </body>
 </html>
